@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/victoria-cleanings/static/css/main.2bcec702.css",
+    "main.js": "/victoria-cleanings/static/js/main.29ad1ca1.js",
+    "static/js/787.d4ef8934.chunk.js": "/victoria-cleanings/static/js/787.d4ef8934.chunk.js",
+    "static/media/logo.png": "/victoria-cleanings/static/media/logo.d15c8008be62bdbd4a04.png",
+    "index.html": "/victoria-cleanings/index.html",
+    "main.2bcec702.css.map": "/victoria-cleanings/static/css/main.2bcec702.css.map",
+    "main.29ad1ca1.js.map": "/victoria-cleanings/static/js/main.29ad1ca1.js.map",
+    "787.d4ef8934.chunk.js.map": "/victoria-cleanings/static/js/787.d4ef8934.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bcec702.css",
+    "static/js/main.29ad1ca1.js"
+  ]
+}
