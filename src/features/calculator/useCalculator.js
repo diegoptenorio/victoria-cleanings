@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const useCalculator = () => {
+  const [phone, setPhone] = useState("");
   const [squareFootage, setSquareFootage] = useState("");
   const [pets, setPets] = useState("");
   const [cleaning, setCleaning] = useState("standard");
@@ -41,8 +42,10 @@ const useCalculator = () => {
     cleaning,
     cleaningType,
     handlerPets,
+    setPhone,
     handlerSquareFootage,
     pets,
+    phone,
     setCleaning,
     setCleaningType,
     simulate,

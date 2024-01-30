@@ -2,23 +2,37 @@ import useCalculator from "./useCalculator";
 
 export const Calculator = () => {
     const {
-        cleaning,
-        cleaningType,
-        handlerPets,
-        handlerSquareFootage,
-        pets,
-        setCleaning,
-        setCleaningType,
-        simulate,
-        simulatedValue,
-        squareFootage,
+      cleaning,
+      cleaningType,
+      handlerPets,
+      setPhone,
+      handlerSquareFootage,
+      pets,
+      phone,
+      setCleaning,
+      setCleaningType,
+      simulate,
+      simulatedValue,
+      squareFootage,
     } = useCalculator();
     return (
       <form action="https://formbold.com/s/91EbB" method="POST">
         <div className="fieldGroup">
+          <label htmlFor="footage">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            inputMode="tel"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+        <div className="fieldGroup">
           <label htmlFor="footage">Square Footage</label>
           <input
             id="footage"
+            name="footage"
             inputMode="numeric"
             value={squareFootage}
             onChange={(e) => handlerSquareFootage(e.target.value)}
@@ -28,6 +42,7 @@ export const Calculator = () => {
           <label htmlFor="pets">Pets</label>
           <input
             id="pets"
+            name="pets"
             inputMode="numeric"
             value={pets}
             onChange={(e) => handlerPets(e.target.value)}
@@ -118,13 +133,22 @@ export const Calculator = () => {
         </fieldset>
         <div className="fieldGroup">
           <input
+            className="submitButton"
             disabled={!squareFootage}
             type="button"
-            value="simulate"
+            value="Simulate"
             onClick={() => simulate()}
           />
         </div>
-        {simulatedValue && <p>$ {simulatedValue}</p>}
+        {simulatedValue && (
+          <div>
+            <p>$ {simulatedValue}</p>
+            <input name="simulated value" hidden value={simulatedValue} />
+            <button className="submitButton" type="submit" formtarget="_blank">
+              Book Cleaning
+            </button>
+          </div>
+        )}
       </form>
     );
 };
