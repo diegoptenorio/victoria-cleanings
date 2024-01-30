@@ -116,9 +116,9 @@ const useCalculator = () => {
       price *= 3;
     }
     price = price + Number(form.pets) * 10;
-    if (form.cleaningType === "biweekly") {
+    if (form.type === "biweekly") {
       price *= 0.9;
-    } else if (form.cleaningType === "weekly") {
+    } else if (form.type === "weekly") {
       price *= 0.8;
     }
     setForm((previous) => {
