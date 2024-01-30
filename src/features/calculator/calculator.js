@@ -1,53 +1,90 @@
 import useCalculator from "./useCalculator";
 
 export const Calculator = () => {
-    const {
-      cleaning,
-      cleaningType,
-      handlerPets,
-      setPhone,
-      handlerSquareFootage,
-      pets,
-      phone,
-      setCleaning,
-      setCleaningType,
-      simulate,
-      simulatedValue,
-      squareFootage,
-    } = useCalculator();
+    const { form, handlerForm, simulate } = useCalculator();
     return (
       <form action="https://formbold.com/s/91EbB" method="POST">
-        <div className="fieldGroup">
-          <label htmlFor="footage">Phone</label>
-          <input
-            id="phone"
-            name="phone"
-            inputMode="tel"
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-        <div className="fieldGroup">
-          <label htmlFor="footage">Square Footage</label>
-          <input
-            id="footage"
-            name="footage"
-            inputMode="numeric"
-            value={squareFootage}
-            onChange={(e) => handlerSquareFootage(e.target.value)}
-          />
-        </div>
-        <div className="fieldGroup">
-          <label htmlFor="pets">Pets</label>
-          <input
-            id="pets"
-            name="pets"
-            inputMode="numeric"
-            value={pets}
-            onChange={(e) => handlerPets(e.target.value)}
-          />
-        </div>
+        <fieldset className="fieldGroup">
+          <legend>Contact</legend>
+          <div className="fieldGroup">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+          <div className="fieldGroup">
+            <label htmlFor="address">Address</label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              value={form.address}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+          <div className="fieldGroup">
+            <label htmlFor="footage">Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              inputMode="tel"
+              type="tel"
+              value={form.phone}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+        </fieldset>
+        <fieldset className="fieldGroup">
+          <legend>Your home</legend>
+          <div className="fieldGroup">
+            <label htmlFor="footage">Square Footage</label>
+            <input
+              id="footage"
+              name="footage"
+              inputMode="numeric"
+              value={form.footage}
+              maxLength={5}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+          <div className="fieldGroup">
+            <label htmlFor="bedrooms">Bedrooms</label>
+            <input
+              id="bedrooms"
+              name="bedrooms"
+              inputMode="numeric"
+              value={form.bedrooms}
+              maxLength={1}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+          <div className="fieldGroup">
+            <label htmlFor="bathrooms">Bathrooms</label>
+            <input
+              id="bathrooms"
+              name="bathrooms"
+              inputMode="numeric"
+              value={form.bathrooms}
+              maxLength={1}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+          <div className="fieldGroup">
+            <label htmlFor="pets">Pets</label>
+            <input
+              id="pets"
+              name="pets"
+              inputMode="numeric"
+              value={form.pets}
+              maxLength={1}
+              onChange={(event) => handlerForm(event)}
+            />
+          </div>
+        </fieldset>
         <fieldset className="fieldGroup">
           <legend>Cleaning</legend>
           <div>
@@ -56,8 +93,8 @@ export const Calculator = () => {
               id="standard"
               name="cleaning"
               value="standard"
-              checked={cleaning === "standard"}
-              onChange={(e) => setCleaning(e.target.value)}
+              checked={form.cleaning === "standard"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="standard">Standard</label>
           </div>
@@ -67,8 +104,8 @@ export const Calculator = () => {
               id="deep"
               name="cleaning"
               value="deep"
-              checked={cleaning === "deep"}
-              onChange={(e) => setCleaning(e.target.value)}
+              checked={form.cleaning === "deep"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="deep">Deep clean</label>
           </div>
@@ -78,8 +115,8 @@ export const Calculator = () => {
               id="move"
               name="cleaning"
               value="move"
-              checked={cleaning === "move"}
-              onChange={(e) => setCleaning(e.target.value)}
+              checked={form.cleaning === "move"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="move">Move in/Move out</label>
           </div>
@@ -92,8 +129,8 @@ export const Calculator = () => {
               id="one"
               name="type"
               value="one"
-              checked={cleaningType === "one"}
-              onChange={(e) => setCleaningType(e.target.value)}
+              checked={form.type === "one"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="one">One time</label>
           </div>
@@ -103,8 +140,8 @@ export const Calculator = () => {
               id="weekly"
               name="type"
               value="weekly"
-              checked={cleaningType === "weekly"}
-              onChange={(e) => setCleaningType(e.target.value)}
+              checked={form.type === "weekly"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="weekly">Weekly</label>
           </div>
@@ -114,8 +151,8 @@ export const Calculator = () => {
               id="biweekly"
               name="type"
               value="biweekly"
-              checked={cleaningType === "biweekly"}
-              onChange={(e) => setCleaningType(e.target.value)}
+              checked={form.type === "biweekly"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="biweekly">Biweekly</label>
           </div>
@@ -125,8 +162,8 @@ export const Calculator = () => {
               id="monthly"
               name="type"
               value="monthly"
-              checked={cleaningType === "monthly"}
-              onChange={(e) => setCleaningType(e.target.value)}
+              checked={form.type === "monthly"}
+              onChange={(event) => handlerForm(event)}
             />
             <label htmlFor="monthly">Monthly</label>
           </div>
@@ -134,18 +171,18 @@ export const Calculator = () => {
         <div className="fieldGroup">
           <input
             className="submitButton"
-            disabled={!squareFootage}
+            disabled={!form.footage}
             type="button"
             value="Simulate"
             onClick={() => simulate()}
           />
         </div>
-        {simulatedValue && (
+        {form.simulatedValue && (
           <div>
-            <p>$ {simulatedValue}</p>
-            <input name="simulated value" hidden value={simulatedValue} />
+            <p>$ {form.simulatedValue}</p>
+            <input name="simulated value" hidden value={form.simulatedValue} />
             <button className="submitButton" type="submit" formtarget="_blank">
-              Book Cleaning
+              Schedule a visit
             </button>
           </div>
         )}
