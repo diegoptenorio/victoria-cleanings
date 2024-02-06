@@ -3,7 +3,7 @@ import useCalculator from "./useCalculator";
 export const Calculator = () => {
     const { form, handlerForm, simulate } = useCalculator();
     return (
-      <form action="https://formbold.com/s/91EbB" method="POST">
+      <form action="https://formbold.com/s/9R8pM" method="POST">
         <fieldset className="fieldGroup">
           <legend>Contact</legend>
           <div className="fieldGroup">
