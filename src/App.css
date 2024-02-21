@@ -1,10 +1,95 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #FF6392;
 }
 
-.app {
+h1 {
+  font-size: 26px;
+  font-family: "Vibur", cursive;
   text-align: center;
-  min-height: 100vh;
+  color: #fff;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+  margin: 50px 0 30px 0;
+}
+
+h2 {
+  color: #FF6392;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+ul {
+  list-style-image: url('./assets/img/checkIcon.svg');
+}
+
+li {
+  margin-right: 5%;
+  width: 28%;
+  float: left;
+}
+
+li:last-of-type {
+  margin-right: 0 !important;
+}
+
+li::marker {
+  top: 10px;
+}
+
+ul p {
+  text-align: left;
+  top: -8px;
+  position: relative;
+}
+
+p {
+  color: #007EBD;
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  color: #007EBD;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=tel],
+input[inputmode=numeric] {
+  background-color: #fff;
+  border: 1px solid #FF6392;
+  border-radius: 8px;
+  padding: 12px;
+  width: calc(100% - 25px);
+}
+
+footer {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > div {
+  align-items: end;
+}
+
+address {
+  text-align: right;
+  font-weight: bold;
+  font-style: normal;
+  color: #fff;
+  height: fit-content;
+}
+
+address > small {
+  font-weight: normal;
 }
 
 header {
@@ -12,21 +97,30 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 main {
-  padding: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
 }
 
-form {
-  width: 100%;
-  max-width: 400px;
+.app {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 174px;
+  height: auto;
+}
+
+.mainContainer {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 30px;
 }
 
 .fieldGroup {
@@ -36,6 +130,182 @@ form {
   margin-bottom: 15px;
 }
 
-.submitButton {
-  padding: 10px;
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: calc(100% - 30px);
+  max-width: 1200px;
+  margin: auto;
+}
+
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.outlinedButton {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  background: none;
+  padding: 15px 25px;
+  height: fit-content;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.simulateButton {
+  border: 1px solid #007EBD;
+  border-radius: 5px;
+  color: #007EBD;
+  background: none;
+  padding: 15px 25px;
+  height: fit-content;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.simulateButton:disabled {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ccc;
+  background: none;
+  padding: 15px 25px;
+  height: fit-content;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card {
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 40px 40px 30px 40px;
+  margin-right: 25px;
+  text-align: center;
+  flex: 1;
+  overflow: auto;
+}
+
+.card:last-of-type {
+  margin-right: 0 !important;
+}
+
+.card > img {
+  width: 100%;
+  max-width: 80px;
+}
+
+.cardContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cardColumn {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardColumn > div {
+  width: calc(50% - 25px);
+  margin-right: 25px;
+}
+
+.cardColumn > div:last-of-type {
+  width: 50%;
+  margin-right: 0;
+}
+
+
+/* radio button */
+
+input[type=radio] {
+    opacity: 0;
+    position: absolute;   
+}
+
+input[type=radio], label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+input[type=radio] + label:before {
+    content: '';
+    background: #fff;
+    border: 1px solid #FF6392;
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+label:before {
+  margin-top: -3px;
+}
+
+input[type=radio] + label:before {
+    border-radius: 50%;
+}
+
+input[type=radio]:checked + label:before {
+    background: #FF6392;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+}
+
+@media (max-width: 965px) {
+  li {
+    width: 100%;
+  }
+
+  fieldset {
+    width: 100%;
+    padding: 0;
+  }
+
+  .spaceBetween {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin: 25px 0;
+  }
+
+  .card {
+    padding: 20px 20px 15px 20px;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .card:last-of-type {
+    margin-bottom: 0 !important;
+  }
+
+  .cardColumn {
+    flex-direction: column;
+  }
+
+  .cardColumn > div,
+  .cardColumn > div:last-of-type {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  input[type=text],
+  input[type=tel],
+  input[inputmode=numeric] {
+    width: calc(100% - 25px);
+  }
+
+  .cleaningType {
+    margin-bottom: 25px;
+  }
 }

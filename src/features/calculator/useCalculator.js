@@ -10,7 +10,7 @@ const useCalculator = () => {
     bathrooms: "",
     pets: "",
     cleaning: "standard",
-    type: "one",
+    type: "one time/monthly",
     simulatedValue: "",
   });
 
@@ -42,7 +42,7 @@ const useCalculator = () => {
         setForm((previous) => {
           return {
             ...previous,
-            phone: value,
+            phone: displayOnlyNumbers(value),
           };
         });
         break;
