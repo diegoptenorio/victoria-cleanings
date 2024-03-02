@@ -1,5 +1,5 @@
 import logo from "../../assets/img/logo.svg";
 
-export const Logo = () => (
-    <img src={logo} className="logo" alt="logo" draggable={false} />
+export const Logo = ({ size = 'small' }) => (
+  <img src={logo} className={`logo ${size}-logo`} alt="logo" draggable={false} />
 );

@@ -10,10 +10,22 @@ export const Home = () => {
     return (
       <Layout>
         <Layout.Header>
-          <Logo />
-          <Button className="outlinedButton" onClick={executeScroll}>
-            Get a quote
-          </Button>
+          <Logo size="large" />
+          <div className="mainMenu">
+            <address style={{ display: 'inline-block' }}>
+              (407)729-3649
+            </address>
+            <Button
+              onClick={() => (window.location.href = "tel:4077293649")}
+              type="button"
+              className="outlinedButton clickToCall"
+            >
+              Click to call
+            </Button>
+            <Button className="outlinedButton" onClick={executeScroll}>
+              Get a quote
+            </Button>
+          </div>
         </Layout.Header>
         <Layout.Main>
           <Services />
