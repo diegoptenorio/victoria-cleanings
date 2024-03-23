@@ -1,5 +1,22 @@
 import { useState } from "react";
 
+const updateSimulationValue = (formValues) => {
+  const squareFeetPrice = 0.09;
+  let price = Number(formValues.footage) * squareFeetPrice;
+  if (formValues.cleaning === "deep") {
+    price *= 2;
+  } else if (formValues.cleaning === "move") {
+    price *= 3;
+  }
+  price = price + Number(formValues.pets) * 10;
+  if (formValues.type === "biweekly") {
+    price *= 0.9;
+  } else if (formValues.type === "weekly") {
+    price *= 0.8;
+  }
+  return price.toFixed(2).toString();
+};
+
 const useCalculator = () => {
   const [form, setForm] = useState({
     name: "",
@@ -13,6 +30,8 @@ const useCalculator = () => {
     type: "one time/monthly",
     simulatedValue: "",
   });
+
+  const [isSimulationFinished, setIsSimulationFinished] = useState(false);
 
   const displayOnlyNumbers = (value) => {
     const formatedValue = value.replace(/[^0-9]+/g, "");
@@ -47,10 +66,17 @@ const useCalculator = () => {
         });
         break;
       case "footage":
+        if (!value) {
+          setIsSimulationFinished(false);
+        }
         setForm((previous) => {
           return {
             ...previous,
             footage: displayOnlyNumbers(value),
+            simulatedValue: updateSimulationValue({
+              ...previous,
+              footage: displayOnlyNumbers(value),
+            }),
           };
         });
         break;
@@ -75,6 +101,10 @@ const useCalculator = () => {
           return {
             ...previous,
             pets: displayOnlyNumbers(value),
+            simulatedValue: updateSimulationValue({
+              ...previous,
+              pets: displayOnlyNumbers(value),
+            }),
           };
         });
         break;
@@ -83,6 +113,10 @@ const useCalculator = () => {
           return {
             ...previous,
             cleaning: value,
+            simulatedValue: updateSimulationValue({
+              ...previous,
+              cleaning: value,
+            }),
           };
         });
         break;
@@ -91,14 +125,10 @@ const useCalculator = () => {
           return {
             ...previous,
             type: value,
-          };
-        });
-        break;
-      case "simulatedValue":
-        setForm((previous) => {
-          return {
-            ...previous,
-            simulatedValue: value,
+            simulatedValue: updateSimulationValue({
+              ...previous,
+              type: value,
+            }),
           };
         });
         break;
@@ -107,32 +137,11 @@ const useCalculator = () => {
     }
   };
 
-  const simulate = () => {
-    const squareFeetPrice = 0.09;
-    let price = Number(form.footage) * squareFeetPrice;
-    if (form.cleaning === "deep") {
-      price *= 2;
-    } else if (form.cleaning === "move") {
-      price *= 3;
-    }
-    price = price + Number(form.pets) * 10;
-    if (form.type === "biweekly") {
-      price *= 0.9;
-    } else if (form.type === "weekly") {
-      price *= 0.8;
-    }
-    setForm((previous) => {
-      return {
-        ...previous,
-        simulatedValue: price.toFixed(2).toString(),
-      };
-    });
-  };
-
   return {
     form,
     handlerForm,
-    simulate,
+    isSimulationFinished,
+    setIsSimulationFinished,
   };
 };
 

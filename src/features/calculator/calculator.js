@@ -1,15 +1,13 @@
 import useCalculator from "./useCalculator";
 
 export const Calculator = ({ innerRef }) => {
-  const { form, handlerForm, simulate } = useCalculator();
+  const { form, handlerForm, isSimulationFinished, setIsSimulationFinished } =
+    useCalculator();
   const validatedForm =
     form.name &&
     form.address &&
     form.phone &&
-    form.footage &&
-    form.bedrooms &&
-    form.bathrooms &&
-    form.pets;
+    form.footage;
   return (
     <div className="cardContainer">
       <h1 ref={innerRef}>Get a quote</h1>
@@ -180,10 +178,10 @@ export const Calculator = ({ innerRef }) => {
               disabled={!validatedForm}
               type="button"
               value="Simulate quote"
-              onClick={() => simulate()}
+              onClick={() => setIsSimulationFinished(true)}
             />
           </div>
-          {form.simulatedValue && (
+          {isSimulationFinished && (
             <div>
               <br />
               <p>Estimated value: ${form.simulatedValue}</p>
