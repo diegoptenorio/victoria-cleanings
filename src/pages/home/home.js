@@ -13,7 +13,7 @@ export const Home = () => {
           <Logo size="large" />
           <div className="mainMenu">
             <address style={{ display: 'inline-block' }}>
-              (407)729-3649
+              (407) 729-3649
             </address>
             <Button
               onClick={() => (window.location.href = "tel:4077293649")}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const updateSimulationValue = (formValues) => {
-  const squareFeetPrice = 0.09;
+  const squareFeetPrice = 0.11;
   let price = Number(formValues.footage) * squareFeetPrice;
   if (formValues.cleaning === "deep") {
     price *= 2;
