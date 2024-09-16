@@ -176,9 +176,10 @@ export const Calculator = ({ innerRef }) => {
             <input
               className="simulateButton"
               disabled={!validatedForm}
-              type="button"
               value="Simulate quote"
               onClick={() => setIsSimulationFinished(true)}
+              type="submit"
+              formTarget="_blank"
             />
           </div>
           {isSimulationFinished && (
