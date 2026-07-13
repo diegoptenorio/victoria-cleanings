@@ -4,7 +4,7 @@ const updateSimulationValue = (formValues) => {
   const squareFeetPrice = 0.11;
   let price = Number(formValues.footage) * squareFeetPrice;
   if (formValues.cleaning === "deep") {
-    price *= 2;
+    price *= 1.5;
   } else if (formValues.cleaning === "move") {
     price *= 3;
   }
